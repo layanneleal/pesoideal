@@ -10,8 +10,9 @@ function calcularPeso() {
   let nome = inNome.value.toUpperCase()
   let masculino = rbMasculino.checked
   let feminino = rbFeminino.checked
-  let altura = Number(inAltura.value).replace(',', '.')
-  let peso = 0
+  let altura = inAltura.value.replace(',', '.')
+  altura = Number(altura)
+  let pesoh = 0
 
   //Verifica se o nome foi preenchido e sexo selecionado
   if (nome == '' || (masculino == false && feminino == false)) {
@@ -29,15 +30,30 @@ function calcularPeso() {
 
   //Se masculino == true
   if (masculino) {
-     peso = 22 * 2//Math.pow(altura, 2) // Math.pow eleva ao quadrado
+     pesoh = 22 * Math.pow(altura, 2) // Math.pow eleva ao quadrado
   } else {
-     peso = 21 * 2//Math.pow(altura, 2)
+     pesoh = 21 * Math.pow(altura, 2)
   }
+  //alert(pesoh)
   //Apresenta a resposta (altera o conteúdo da linha outResposta)
-  outResposta.textContent = nome + ': Seu peso ideal é ' + peso.toFixed(3) + 'kg'
+  outResposta.textContent = nome + ': Seu peso ideal é ' + pesoh.toFixed(3) + 'kg'
 }
 
 //Cria referência ao elemento btCalcular e registra um evento associado a function calcularPeso
 let btCalcular = document.getElementById('btCalcular')
 btCalcular.addEventListener('click', calcularPeso)
 
+let btLimpar = document.getElementById('btLimpar')
+btLimpar.addEventListener('click', limparCampos)
+
+function limparCampos() {
+   document.getElementById('inNome').value =''
+   //document.getElementsByName('sexo').checked =false 
+   document.getElementById('inAltura').value = ''
+   document.getElementById('outResposta').textContent=''
+
+  var inputs = document.querySelectorAll('input[type="radio"]');
+  for (var i = 0, l = inputs.length; i < l; i++){
+    inputs[i].checked = false;
+  }
+}
