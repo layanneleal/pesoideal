@@ -39,21 +39,20 @@ function calcularPeso() {
   outResposta.textContent = nome + ': Seu peso ideal é ' + pesoh.toFixed(3) + 'kg'
 }
 
-//Cria referência ao elemento btCalcular e registra um evento associado a function calcularPeso
+//Cria referência ao elemento btCalcular e registra um evento associado a função calcularPeso
 let btCalcular = document.getElementById('btCalcular')
 btCalcular.addEventListener('click', calcularPeso)
 
-let btLimpar = document.getElementById('btLimpar')
-btLimpar.addEventListener('click', limparCampos)
-
+//Limpa os conteúdos dos elementos
 function limparCampos() {
    document.getElementById('inNome').value =''
-   //document.getElementsByName('sexo').checked =false 
+   document.getElementById("rbMasculino").checked = false
+   document.getElementById("rbFeminino").checked = false
    document.getElementById('inAltura').value = ''
    document.getElementById('outResposta').textContent=''
-
-  var inputs = document.querySelectorAll('input[type="radio"]');
-  for (var i = 0, l = inputs.length; i < l; i++){
-    inputs[i].checked = false;
-  }
+   //Posiciona (jpga foco) no elemento inNome
+   document.getElementById("inNome").focus()
 }
+//Cria referência ao elemento btLimpar e registra um evento associado a função limparCampos
+let btLimpar = document.getElementById('btLimpar')
+btLimpar.addEventListener('click', limparCampos)
