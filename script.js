@@ -57,8 +57,7 @@ function limparCampos() {
 let btLimpar = document.getElementById('btLimpar')
 btLimpar.addEventListener('click', limparCampos)
 
-//Segunda opção
-/* Recarrega a página
+/*Segunda opção: recarregar a página
 
 function limparCampos() {
 location.reload()
