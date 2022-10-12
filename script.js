@@ -50,9 +50,21 @@ function limparCampos() {
    document.getElementById("rbFeminino").checked = false
    document.getElementById('inAltura').value = ''
    document.getElementById('outResposta').textContent=''
-   //Posiciona (jpga foco) no elemento inNome
+   //Posiciona (joga foco) no elemento inNome
    document.getElementById("inNome").focus()
 }
 //Cria referência ao elemento btLimpar e registra um evento associado a função limparCampos
 let btLimpar = document.getElementById('btLimpar')
 btLimpar.addEventListener('click', limparCampos)
+
+//Segunda opção
+/* Recarrega a página
+
+function limparCampos() {
+location.reload()
+document.getElementById("inNome").focus() //Foco no inNome
+}
+var btLimpar = document.getElementById("btLimpar")
+btLimpar.addEventListener("click", limparCampos)
+*/
+
